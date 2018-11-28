@@ -13,12 +13,11 @@ import java.util.*;
 public class Uva100 {
 	public static void main (String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		
 		while(scanner.hasNextInt()) { //多次輸入
 			int num1 = scanner.nextInt();
 			int num2 = scanner.nextInt();
-			int min = Math.min(num1,num2); //使用Math.min 設定min為num1,num2較小的一方
-			int max = Math.max(num1,num2); //使用Math.max 設定max為num1,num2較大的一方
+			int min = (num1<num2)?num1:num2; 
+			int max = (num1>num2)?num1:num2; 
 			int maxtimes = 0;   //設立最大次數
 				for(int i =min;i<max;i++) {   //3n+1迴圈
 					int count = 1;
@@ -29,7 +28,7 @@ public class Uva100 {
 								j=j*3+1;
 							count++;
 						}
-						if (count>maxtimes)
+						if (count>maxtimes)  //每當有計算次數超過maxtimes時,便把該數值設定成maxtimes
 							maxtimes = count;
 				}
 				System.out.println(num1+" "+num2+" "+maxtimes); //Output
